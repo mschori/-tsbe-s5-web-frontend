@@ -14,6 +14,9 @@
           <li class="nav-item">
             <RouterLink to="/todos" class="nav-link">My Todos</RouterLink>
           </li>
+          <li class="nav-item">
+            <RouterLink to="/signup" class="nav-link">Sign Up</RouterLink>
+          </li>
         </ul>
       </div>
     </div>
