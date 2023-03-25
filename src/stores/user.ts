@@ -22,6 +22,15 @@ export const useUserStore = defineStore('user', {
             this.email = user.email;
             this.accessToken = user.accessToken;
             this.refreshToken = user.refreshToken;
+            this.isLoggedIn = user.isLoggedIn;
+        },
+        resetUser() {
+            this.firstname = '';
+            this.lastname = '';
+            this.email = '';
+            this.accessToken = '';
+            this.refreshToken = '';
+            this.isLoggedIn = false;
         }
     },
 

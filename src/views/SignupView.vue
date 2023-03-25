@@ -83,8 +83,6 @@ export default {
         password: password.value
       })
           .then(function (response) {
-            console.log(response);
-            console.log('singup successfull')
             userStore.setUser({
               firstname: response.data.user.firstname,
               lastname: response.data.user.lastname,
