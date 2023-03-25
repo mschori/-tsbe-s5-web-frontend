@@ -14,15 +14,15 @@
           <li class="nav-item">
             <RouterLink to="/todos" class="nav-link">My Todos</RouterLink>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="!userStore.isLoggedIn">
             <RouterLink to="/signup" class="nav-link">Sign Up</RouterLink>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="!userStore.isLoggedIn">
             <RouterLink to="/login" class="nav-link">Login</RouterLink>
           </li>
         </ul>
-        <div>
-          <button class="btn btn-sm btn-primary" @click="logout">Logout</button>
+        <div v-if="userStore.isLoggedIn">
+          <button class="btn btn-sm btn-warning" @click="logout">Logout</button>
         </div>
       </div>
     </div>
@@ -42,7 +42,8 @@ export default {
     }
 
     return {
-      logout
+      logout,
+      userStore
     }
   }
 }
