@@ -56,7 +56,7 @@ export default {
 
     const submit = (e) => {
       e.preventDefault();
-      axios.post( import.meta.env.VITE_BACKEND_BASE_URL + '/signin', {
+      axios.post( import.meta.env.VITE_BACKEND_BASE_URL + '/api/signin', {
         email: email.value,
         password: password.value
       })

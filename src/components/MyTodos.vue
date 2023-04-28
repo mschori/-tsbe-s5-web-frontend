@@ -1,5 +1,6 @@
 <template>
   <div>
+      hallo
   </div>
 </template>
 
@@ -14,7 +15,7 @@ export default {
     const todos = ref([])
 
     const getTodo = () => {
-      axios.get('http://127.0.0.1:8000/api/v1/todos')
+      axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/v1/todos`)
           .then(res => {
             todos.value = res.data
             console.log(todos.value);
