@@ -1,5 +1,5 @@
 <template>
-    <CreateTodo @getTodos="getTodo()"/>
+    <CreateTodo @get-todos="getTodo()"/>
     <div class="container">
         <div class="row" v-for="(todo, idx) in todos" v-bind:key="idx">
             <div class="form-check m-2">
@@ -18,6 +18,9 @@
                         v-on:click="removeTodo(todo.id)">
                     Delete
                 </button>
+                <div class="text-muted">
+                    {{ todo.description }}
+                </div>
             </div>
             <hr/>
         </div>
@@ -27,7 +30,7 @@
 <script>
 import {onMounted, ref} from 'vue';
 import axios from 'axios';
-import CreateTodo from "@/components/CreateTodo.vue";
+import CreateTodo from "@/components/todos/CreateTodo.vue";
 
 export default {
     name: "MyTodos",
@@ -40,15 +43,10 @@ export default {
             axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/v1/todos`)
                 .then(res => {
                     todos.value = res.data
-                    console.log(todos.value);
                 })
                 .catch(err => {
                     console.log(err)
                 });
-        }
-
-        const addTodo = () => {
-
         }
 
         const toggleTodo = (id) => {
@@ -77,14 +75,12 @@ export default {
         }
 
         onMounted(() => {
-            console.log('mounted')
             getTodo()
         })
 
         return {
             todos,
             getTodo,
-            addTodo,
             toggleTodo,
             removeTodo
         }

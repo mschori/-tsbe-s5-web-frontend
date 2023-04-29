@@ -32,6 +32,19 @@ const router = createRouter({
                     next('/login');
                 }
             }
+        },
+        {
+            path: '/modules',
+            name: 'modules',
+            component: () => import('../views/ModuleView.vue'),
+            beforeEnter: (to, from, next) => {
+                const userStore = useUserStore();
+                if (userStore.isLoggedIn) {
+                    next();
+                } else {
+                    next('/login');
+                }
+            }
         }
     ]
 });

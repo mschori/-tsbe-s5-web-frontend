@@ -25,21 +25,32 @@
 
 <script>
 import {ref} from "vue";
+import axios from "axios";
 
 export default {
     name: "CreateTodo",
-    setup() {
+    setup(props, {emit}) {
         const todoName = ref('');
         const todoDescription = ref('');
         const todoDueDate = ref('');
 
         const createTodo = (e) => {
             e.preventDefault();
-            console.log('submitted')
-            // Call getTodo() from MyTodos.vue
-            this.$emit('getTodos');
-
-
+            axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/v1/todos`, {
+                title: todoName.value,
+                description: todoDescription.value,
+                due_date: todoDueDate.value
+            })
+                .then(res => {
+                    console.log(res.data);
+                    todoName.value = '';
+                    todoDescription.value = '';
+                    todoDueDate.value = '';
+                    emit('get-todos');
+                })
+                .catch(err => {
+                    console.log(err)
+                });
         }
 
         return {

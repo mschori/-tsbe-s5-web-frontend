@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import MyTodos from "@/components/MyTodos.vue";
-import CreateTodo from "@/components/CreateTodo.vue";
+import MyTodos from "@/components/todos/MyTodos.vue";
+import CreateTodo from "@/components/todos/CreateTodo.vue";
 
 export default {
     name: "TodoView",
-    components: {CreateTodo, MyTodos}
+    components: {MyTodos}
 }
 </script>
 
