@@ -45,6 +45,19 @@ const router = createRouter({
                     next('/login');
                 }
             }
+        },
+        {
+            path: '/grades',
+            name: 'grades',
+            component: () => import('../views/GradeView.vue'),
+            beforeEnter: (to, from, next) => {
+                const userStore = useUserStore();
+                if (userStore.isLoggedIn) {
+                    next();
+                } else {
+                    next('/login');
+                }
+            }
         }
     ]
 });

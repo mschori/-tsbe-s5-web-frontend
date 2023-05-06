@@ -17,6 +17,9 @@
                     <li class="nav-item">
                         <RouterLink to="/modules" class="nav-link">Modules</RouterLink>
                     </li>
+                    <li class="nav-item">
+                        <RouterLink to="/grades" class="nav-link">Grades</RouterLink>
+                    </li>
                     <li class="nav-item" v-if="!userStore.isLoggedIn">
                         <RouterLink to="/signup" class="nav-link">Sign Up</RouterLink>
                     </li>
