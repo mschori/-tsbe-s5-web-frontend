@@ -76,7 +76,7 @@ export default {
       } else {
         password2Error.value = false;
       }
-      axios.post(import.meta.env.VITE_BACKEND_BASE_URL + '/signup', {
+      axios.post(import.meta.env.VITE_BACKEND_BASE_URL + '/api/signup', {
         firstname: firstname.value,
         lastname: lastname.value,
         email: email.value,
